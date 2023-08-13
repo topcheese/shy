@@ -5,7 +5,7 @@ module analyse
 
 const hack = init()
 
-fn init() &Analysis {
+pub fn init() &Analysis {
 	$if !shy_analyse ? {
 		return unsafe { nil }
 	}
@@ -21,7 +21,7 @@ mut:
 // taggged_count adds the `key` entry to the report, if not already there, and
 // increase it's value by `amount`.
 [if shy_analyse ?]
-fn tagged_count[T](tag string, key string, amount T) {
+pub fn tagged_count[T](tag string, key string, amount T) {
 	mut a := unsafe { analyse.hack } // TODO
 	nkey := '[${tag}]${key}'
 	$if T is int {
