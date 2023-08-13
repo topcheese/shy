@@ -5,7 +5,7 @@ module analyse
 
 const hack = init()
 
-pub fn init() &Analysis {
+fn init() &Analysis {
 	$if !shy_analyse ? {
 		return unsafe { nil }
 	}
